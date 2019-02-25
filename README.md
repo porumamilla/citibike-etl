@@ -10,5 +10,6 @@ mvn compile exec:java -Dexec.mainClass=sravasti.citibike.etl.BatchPipeline
                       -Dexec.args="--inputFile=gs://citibike-springml/incoming/201306-citibike-tripdata1.csv 
                       --tempLocation=gs://citibike-springml/dataflow/temp" 
                       -Pdirect-runner
-       
+## Creating template to run on Cloud dataflow
+mvn compile exec:java -Dexec.mainClass=sravasti.citibike.etl.BatchPipeline -Dexec.args="--runner=DataflowRunner --project=springmlproject --stagingLocation=gs://citibike-springml/staging --templateLocation=gs://citibike-springml/templates/citibike-template"
                       
